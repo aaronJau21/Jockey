@@ -44,7 +44,10 @@ const BotonesAyudas = () => {
         </div>
       </div>
       {/* Scroll */}
-      <div className="flex flex-col items-end mr-7 gap-y-3 mt-9 2xl:hidden">
+      <div
+        className="w-96 flex flex-col items-end mr-7 gap-y-3 mt-9 2xl:hidden"
+        style={{ position: "fixed", right: 0, top: 150 }}
+      >
         <div className="flex gap-1 text-base bg-[#2BB296] py-1 px-2 rounded-md text-white">
           <i className="fa-solid fa-ruler-combined"></i>
           <p>Medir Área</p>

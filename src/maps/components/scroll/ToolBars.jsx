@@ -2,7 +2,7 @@ import React from "react";
 
 const ToolBars = () => {
   return (
-    <div className="mt-5 2xl:mt-0">
+    <div className="mt-5 2xl:mt-0" style={{ position: "fixed", right: 30, top: 300 }}>
       <div className="bg-yellow-400 p-2 rounded-md">
         <img
           src="http://13.59.46.236/img/limpiar.svg"

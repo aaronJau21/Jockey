@@ -3,7 +3,14 @@ import BotonesCapas from "./scroll/BotonesCapas";
 import BotonesAyudas from "./scroll/BotonesAyudas";
 import ToolBars from "./scroll/ToolBars";
 
-export const HeadersComponents = () => {
+export const HeadersComponents = ({ extra }) => {
+  const [idButtonCap, setIdButtonCap] = useState(1);
+
+  const extraerIdCapa = (id) => {
+    setIdButtonCap(id);
+    extra(id);
+  };
+
   return (
     <div className="logoStyle w-[100vw]">
       <div className="2xl:flex items-center gap-24">
@@ -37,7 +44,7 @@ export const HeadersComponents = () => {
         </div>
         {/* Botones de las capas */}
 
-        <BotonesCapas />
+        <BotonesCapas extraerIdCapa={extraerIdCapa} />
 
         {/* Botones de Ayudas */}
         <BotonesAyudas />

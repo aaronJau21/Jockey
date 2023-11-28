@@ -10,10 +10,31 @@ import "leaflet/dist/leaflet.css";
 import { HeadersComponents } from "./components/HeadersComponents";
 import "./map.css";
 import Geoman from "./components/scroll/Geoman";
-
+import { useEffect, useState } from "react";
+import piso2 from "./data/piso1.jpg";
 
 const Map = () => {
   const center = [-12.086336855867012, -76.97589942856389];
+  const [url, setUrl] = useState(
+    "http://200.121.128.102:8080/geoserver/jockey/wms"
+  );
+
+  const [idCapa, setIdCapa] = useState(1);
+
+  const extra = (id) => {
+    setIdCapa(id);
+  };
+
+  useEffect(() => {
+    if (idCapa === 1) {
+      setUrl("http://200.121.128.102:8080/geoserver/jockey/wms");
+      console.log();
+    } else if (idCapa === 2) {
+      setUrl(piso2);
+    } else if (idCapa === 3) {
+      setUrl("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png");
+    }
+  }, [idCapa]);
 
   return (
     <MapContainer
@@ -24,18 +45,20 @@ const Map = () => {
       zoomControl={false}
     >
       <ZoomControl position="bottomleft" />
-      <HeadersComponents />
-      {/* <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url={piso1}
-      /> */}
-      <WMSTileLayer
-        layers="jockey:piso1otros"
-        url="http://200.121.128.102:8080/geoserver/jockey/wms"
-        format="image/png"
-        transparent={true}
-        maxZoom={19}
-      />
+
+      <HeadersComponents extra={extra} />
+
+      {url === "http://200.121.128.102:8080/geoserver/jockey/wms" ? (
+        <WMSTileLayer
+          layers={idCapa === 1 ? "jockey:piso1,jockey:piso1otros" : ""}
+          url={url}
+          format="image/png"
+          transparent={false}
+          maxZoom={19}
+        />
+      ) : (
+        <TileLayer url={url} tileSize={1200} noWrap={true} />
+      )}
       <Marker position={center}>
         <Popup>
           A pretty CSS3 popup. <br /> Easily customizable.
