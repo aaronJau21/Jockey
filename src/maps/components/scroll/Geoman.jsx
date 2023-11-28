@@ -33,6 +33,31 @@ const Geoman = () => {
         const editedLayer = shape.toGeoJSON();
         console.log(editedLayer);
       });
+
+      let isHighlighted = false; // Variable para rastrear el estado de resaltado
+
+      shape.on("click", (event) => {
+        // Verificar si la tecla Control está presionada
+        if (event.originalEvent.ctrlKey || event.originalEvent.metaKey) {
+          // Alternar el estado de resaltado
+          isHighlighted = !isHighlighted;
+
+          // Aplicar o quitar el resaltado según el estado actual
+          if (isHighlighted) {
+            // Resaltar (seleccionar) el dibujo, aquí puedes aplicar un estilo diferente
+            shape.setStyle({
+              color: "red",
+              fillColor: "yellow",
+            });
+          } else {
+            // Quitar el resaltado (restaurar el estilo original)
+            shape.setStyle({
+              color: "black", // color de la línea original
+              fillColor: "#F0FFB7", // color de relleno original
+            });
+          }
+        }
+      });
     });
 
     leafletContainer.on("pm:remove", (e) => {
