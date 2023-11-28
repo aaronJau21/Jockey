@@ -1,6 +1,7 @@
 import { useState } from "react";
 import BotonesCapas from "./scroll/BotonesCapas";
 import BotonesAyudas from "./scroll/BotonesAyudas";
+import ToolBars from "./scroll/ToolBars";
 
 export const HeadersComponents = () => {
   return (
@@ -13,7 +14,7 @@ export const HeadersComponents = () => {
           className="w-52 shadow-2xl"
         />
         {/* Buscador */}
-        <div className=" w-72 flex bg-white items-center px-1 rounded-md mt-5 xl:mt-0">
+        <div className=" w-72 flex bg-white items-center px-1 rounded-md mt-5 2xl:mt-0">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -40,6 +41,9 @@ export const HeadersComponents = () => {
 
         {/* Botones de Ayudas */}
         <BotonesAyudas />
+      </div>
+      <div className="flex justify-end mx-10">
+        <ToolBars />
       </div>
     </div>
   );
