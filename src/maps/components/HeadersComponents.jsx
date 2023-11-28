@@ -21,7 +21,7 @@ export const HeadersComponents = ({ extra }) => {
           className="w-52 shadow-2xl"
         />
         {/* Buscador */}
-        <div className=" w-72 flex bg-white items-center px-1 rounded-md mt-5 2xl:mt-0">
+        <div className=" w-72 flex bg-rose-200 items-center px-1 rounded-md mt-5 2xl:mt-0">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -38,7 +38,7 @@ export const HeadersComponents = ({ extra }) => {
           </svg>
           <input
             type="text"
-            className=" rounded-md py-2 px-2"
+            className=" rounded-md py-2 px-2 bg-rose-200"
             placeholder="Buscas..."
           />
         </div>

@@ -5,6 +5,7 @@ import "@geoman-io/leaflet-geoman-free/dist/leaflet-geoman.css";
 
 const Geoman = () => {
   const context = useLeafletContext();
+  const objects = [];
 
   useEffect(() => {
     const leafletContainer = context.layerContainer || context.map;
@@ -19,27 +20,19 @@ const Geoman = () => {
     leafletContainer.pm.setGlobalOptions({ pmIgnore: false });
 
     leafletContainer.on("pm:create", (e) => {
-      if (e.layer && e.layer.pm) {
-        const shape = e;
-        console.log(e);
+      const shape = e.layer;
+      objects.push(shape);
+      console.log(objects);
 
-        // enable editing of circle
-        shape.layer.pm.enable();
+      // enable editing of the shape
+      shape.pm.enable();
 
-        console.log(`object created: ${shape.layer.pm.getShape()}`);
-        // console.log(leafletContainer.pm.getGeomanLayers(true).toGeoJSON());
-        leafletContainer.pm
-          .getGeomanLayers(true)
-          .bindPopup("i am whole")
-          .openPopup();
-        leafletContainer.pm
-          .getGeomanLayers()
-          .map((layer, index) => layer.bindPopup(`I am figure N° ${index}`));
-        shape.layer.on("pm:edit", (e) => {
-          const event = e;
-          // console.log(leafletContainer.pm.getGeomanLayers(true).toGeoJSON());
-        });
-      }
+      // bind popups
+      shape.bindPopup("i am whole").openPopup();
+      shape.on("pm:edit", () => {
+        const editedLayer = shape.toGeoJSON();
+        console.log(editedLayer);
+      });
     });
 
     leafletContainer.on("pm:remove", (e) => {
@@ -50,6 +43,10 @@ const Geoman = () => {
     return () => {
       leafletContainer.pm.removeControls();
       leafletContainer.pm.setGlobalOptions({ pmIgnore: true });
+      leafletContainer.pm.setPathOptions({
+        color: "black",
+        fillColor: "#F0FFB7",
+      });
     };
   }, [context]);
 
