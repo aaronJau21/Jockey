@@ -3,7 +3,7 @@ import BotonesCapas from "./scroll/BotonesCapas";
 import BotonesAyudas from "./scroll/BotonesAyudas";
 import ToolBars from "./scroll/ToolBars";
 
-export const HeadersComponents = ({ extra, setEvent }) => {
+export const HeadersComponents = ({ extra, setEvent, info }) => {
   const [idButtonCap, setIdButtonCap] = useState(1);
   const [extraEvent, setExtraEvent] = useState(false);
 
@@ -13,8 +13,9 @@ export const HeadersComponents = ({ extra, setEvent }) => {
   };
 
   useEffect(() => {
+    if (info.length > 0) console.log(info);
     setEvent(extraEvent);
-  }, [extraEvent]);
+  }, [extraEvent, info, setEvent]);
 
   return (
     <div className="logoStyle w-[100vw]">
@@ -47,6 +48,33 @@ export const HeadersComponents = ({ extra, setEvent }) => {
             placeholder="Buscas..."
           />
         </div>
+        {info.length > 0 && (
+          <div>
+            {info.length > 0 && (
+              <div>
+                {info.length > 0 && (
+                  <div>
+                    {extraEvent && info[info.length - 1].area && (
+                      <p>
+                        Área: {info[info.length - 1].area.toFixed(2)} metros
+                        cuadrados
+                      </p>
+                    )}
+                    {extraEvent && info[info.length - 1].length && (
+                      <p>
+                        Longitud: {info[info.length - 1].length.toFixed(2)}{" "}
+                        metros
+                      </p>
+                    )}
+                    {/* Agrega más lógica según la estructura real de info[0] */}
+                  </div>
+                )}
+                {/* Agrega más lógica según la estructura real de info[0] */}
+              </div>
+            )}
+            {/* Agrega más lógica según la estructura real de info[0] */}
+          </div>
+        )}
         {/* Botones de las capas */}
 
         <BotonesCapas extraerIdCapa={extraerIdCapa} />

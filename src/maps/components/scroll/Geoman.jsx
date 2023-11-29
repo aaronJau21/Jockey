@@ -1,11 +1,20 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLeafletContext } from "@react-leaflet/core";
 import "@geoman-io/leaflet-geoman-free";
 import "@geoman-io/leaflet-geoman-free/dist/leaflet-geoman.css";
+import * as turf from "@turf/turf";
 
-const Geoman = ({ event }) => {
+const Geoman = ({ event, setInfo }) => {
   const context = useLeafletContext();
-  const objects = [];
+  const [objects, setObjects] = useState([]);
+  const [areas, setAreas] = useState([]);
+
+  useEffect(() => {
+    if (event) {
+      // console.log(areas);
+      setInfo(areas);
+    }
+  }, [event, areas]);
 
   useEffect(() => {
     const leafletContainer = context.layerContainer || context.map;
@@ -21,7 +30,7 @@ const Geoman = ({ event }) => {
 
     leafletContainer.on("pm:create", (e) => {
       const shape = e.layer;
-      objects.push(shape);
+      setObjects((prevObjects) => [...prevObjects, shape]);
       console.log(objects);
       // enable editing of the shape
       shape.pm.enable();
@@ -36,7 +45,6 @@ const Geoman = ({ event }) => {
       let isHighlighted = false; // Variable para rastrear el estado de resaltado
 
       shape.on("click", (event2) => {
-        // Verificar si la tecla Control está presionada
         if (event2.originalEvent.ctrlKey || event2.originalEvent.metaKey) {
           // Alternar el estado de resaltado
           isHighlighted = !isHighlighted;
@@ -48,10 +56,12 @@ const Geoman = ({ event }) => {
               color: "red",
               fillColor: "yellow",
             });
-
-            if (event) {
-              console.log("holaa");
-            }
+            const editedLayer = shape.toGeoJSON();
+            const area = turf.area(editedLayer); // en metros cuadrados
+            const length = turf.length(editedLayer); // en metros
+            setAreas((prevAreas) => [...prevAreas, { area, length }]);
+            console.log(`Área: ${area.toFixed(2)} metros cuadrados`);
+            console.log(`Longitud: ${length.toFixed(2)} metros`);
           } else {
             // Quitar el resaltado (restaurar el estilo original)
             shape.setStyle({
