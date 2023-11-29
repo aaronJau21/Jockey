@@ -8,10 +8,19 @@
 .footerStyle {
   position: absolute;
   bottom: 15px;
-  left: 100px;
+  left: 38vw;
   z-index: 1000;
 }
 
 div.leaflet-pm-toolbar.leaflet-pm-draw.leaflet-bar.leaflet-control {
   margin-top: 250px;
+}
+
+.content {
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
 }
