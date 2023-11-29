@@ -1,15 +1,26 @@
-import React from "react";
+import { useEffect, useState } from "react";
 
-const ToolBars = () => {
+const ToolBars = ({ setStateLimpiar }) => {
+  const [limpiar, setLimpiar] = useState(false);
+  useEffect(() => {
+    setStateLimpiar(limpiar);
+  }, [limpiar]);
+
   return (
-    <div className="mt-5 2xl:mt-0" style={{ position: "fixed", right: 30, top: 300 }}>
-      <div className="bg-yellow-400 p-2 rounded-md">
+    <div
+      className="mt-5 2xl:mt-0"
+      style={{ position: "fixed", right: 30, top: 300 }}
+    >
+      <button
+        className="bg-yellow-400 p-2 rounded-md"
+        onClick={() => setLimpiar(!limpiar)}
+      >
         <img
           src="http://13.59.46.236/img/limpiar.svg"
           alt="Limpiar Pantalla"
           className="w-6"
         />
-      </div>
+      </button>
       <div className="bg-sky-400 p-2 rounded-md mt-3">
         <img
           src="http://13.59.46.236/img/grupo.svg"

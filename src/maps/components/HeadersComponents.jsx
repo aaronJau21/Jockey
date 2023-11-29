@@ -3,9 +3,10 @@ import BotonesCapas from "./scroll/BotonesCapas";
 import BotonesAyudas from "./scroll/BotonesAyudas";
 import ToolBars from "./scroll/ToolBars";
 
-export const HeadersComponents = ({ extra, setEvent, info }) => {
+export const HeadersComponents = ({ extra, setEvent, info, setLimpiar }) => {
   const [idButtonCap, setIdButtonCap] = useState(1);
   const [extraEvent, setExtraEvent] = useState(false);
+  const [stateLimpiar, setStateLimpiar] = useState(false);
 
   const extraerIdCapa = (id) => {
     setIdButtonCap(id);
@@ -13,9 +14,10 @@ export const HeadersComponents = ({ extra, setEvent, info }) => {
   };
 
   useEffect(() => {
-    if (info.length > 0) console.log(info);
+    if (info.length > 0) info;
     setEvent(extraEvent);
-  }, [extraEvent, info, setEvent]);
+    setLimpiar(stateLimpiar);
+  }, [extraEvent, info, setEvent, stateLimpiar]);
 
   return (
     <div className="logoStyle w-[100vw]">
@@ -83,7 +85,7 @@ export const HeadersComponents = ({ extra, setEvent, info }) => {
         <BotonesAyudas setExtraEvent={setExtraEvent} />
       </div>
       <div className="flex justify-end mx-10">
-        <ToolBars />
+        <ToolBars setStateLimpiar={setStateLimpiar} />
       </div>
     </div>
   );

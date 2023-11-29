@@ -5,16 +5,20 @@ import "@geoman-io/leaflet-geoman-free/dist/leaflet-geoman.css";
 import * as turf from "@turf/turf";
 import { highlightGeomanShape, resetGeomanShapeStyle } from "../colors/geoman";
 
-const Geoman = ({ event, setInfo }) => {
+const Geoman = ({ event, setInfo, limpiar }) => {
   const context = useLeafletContext();
   const [objects, setObjects] = useState([]);
   const [areas, setAreas] = useState([]);
-
+ 
   useEffect(() => {
     if (event) {
       setInfo(areas);
     }
-  }, [event, areas]);
+
+    if (limpiar) {
+      setInfo([]);
+    }
+  }, [event, areas, limpiar]);
 
   useEffect(() => {
     const leafletContainer = context.layerContainer || context.map;
