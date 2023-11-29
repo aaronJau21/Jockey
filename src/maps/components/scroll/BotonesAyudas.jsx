@@ -1,13 +1,21 @@
-import React from "react";
+import { useEffect, useState } from "react";
 
-const BotonesAyudas = () => {
+const BotonesAyudas = ({ setExtraEvent }) => {
+  const [event, setEvent] = useState(false);
+  useEffect(() => {
+    setExtraEvent(event);
+  }, [event]);
+
   return (
     <>
       <div className="hidden 2xl:flex items-center gap-x-5">
-        <div className="flex gap-1 text-base bg-[#2BB296] py-1 px-2 rounded-md text-white">
+        <button
+          onClick={() => setEvent(!event)}
+          className="flex gap-1 text-base bg-[#2BB296] py-1 px-2 rounded-md text-white"
+        >
           <i className="fa-solid fa-ruler-combined"></i>
           <p>Medir Área</p>
-        </div>
+        </button>
         <div className="flex items-center text-base bg-[#2BB296] py-1 px-2 rounded-md text-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -48,10 +56,13 @@ const BotonesAyudas = () => {
         className="w-96 flex flex-col items-end mr-7 gap-y-3 mt-9 2xl:hidden"
         style={{ position: "fixed", right: 0, top: 150 }}
       >
-        <div className="flex gap-1 text-base bg-[#2BB296] py-1 px-2 rounded-md text-white">
+        <button
+          onClick={() => setEvent(!event)}
+          className="flex gap-1 text-base bg-[#2BB296] py-1 px-2 rounded-md text-white"
+        >
           <i className="fa-solid fa-ruler-combined"></i>
           <p>Medir Área</p>
-        </div>
+        </button>
         <div className="flex items-center text-base bg-[#2BB296] py-1 px-2 rounded-md text-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -1,15 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BotonesCapas from "./scroll/BotonesCapas";
 import BotonesAyudas from "./scroll/BotonesAyudas";
 import ToolBars from "./scroll/ToolBars";
 
-export const HeadersComponents = ({ extra }) => {
+export const HeadersComponents = ({ extra, setEvent }) => {
   const [idButtonCap, setIdButtonCap] = useState(1);
+  const [extraEvent, setExtraEvent] = useState(false);
 
   const extraerIdCapa = (id) => {
     setIdButtonCap(id);
     extra(id);
   };
+
+  useEffect(() => {
+    setEvent(extraEvent);
+  }, [extraEvent]);
 
   return (
     <div className="logoStyle w-[100vw]">
@@ -47,7 +52,7 @@ export const HeadersComponents = ({ extra }) => {
         <BotonesCapas extraerIdCapa={extraerIdCapa} />
 
         {/* Botones de Ayudas */}
-        <BotonesAyudas />
+        <BotonesAyudas setExtraEvent={setExtraEvent} />
       </div>
       <div className="flex justify-end mx-10">
         <ToolBars />

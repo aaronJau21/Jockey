@@ -20,6 +20,8 @@ const Map = () => {
   );
 
   const [idCapa, setIdCapa] = useState(1);
+  const [event, setEvent] = useState(false);
+
 
   const extra = (id) => {
     setIdCapa(id);
@@ -46,7 +48,7 @@ const Map = () => {
     >
       <ZoomControl position="bottomleft" />
 
-      <HeadersComponents extra={extra} />
+      <HeadersComponents extra={extra} setEvent={setEvent} />
 
       {url === "http://200.121.128.102:8080/geoserver/jockey/wms" ? (
         <WMSTileLayer
@@ -64,7 +66,7 @@ const Map = () => {
           A pretty CSS3 popup. <br /> Easily customizable.
         </Popup>
       </Marker>
-      <Geoman />
+      <Geoman event={event}/>
     </MapContainer>
   );
 };
