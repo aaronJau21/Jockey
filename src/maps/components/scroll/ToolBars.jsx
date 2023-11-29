@@ -1,14 +1,18 @@
 import { useEffect, useState } from "react";
 
-const ToolBars = ({ setStateLimpiar }) => {
+const ToolBars = ({ setStateLimpiar, setOptions }) => {
   const [limpiar, setLimpiar] = useState(false);
+
+  const [showOptions, setShowOptions] = useState(false);
+
   useEffect(() => {
     setStateLimpiar(limpiar);
-  }, [limpiar]);
+    setOptions(showOptions);
+  }, [limpiar, showOptions]);
 
   return (
     <div
-      className="mt-5 2xl:mt-0"
+      className="mt-5 2xl:mt-0 flex flex-col"
       style={{ position: "fixed", right: 30, top: 300 }}
     >
       <button
@@ -21,13 +25,16 @@ const ToolBars = ({ setStateLimpiar }) => {
           className="w-6"
         />
       </button>
-      <div className="bg-sky-400 p-2 rounded-md mt-3">
+      <button
+        className="bg-sky-400 p-2 rounded-md mt-3"
+        onClick={() => setShowOptions(!showOptions)}
+      >
         <img
           src="http://13.59.46.236/img/grupo.svg"
           alt="grupo"
           className="w-6"
         />
-      </div>
+      </button>
       <div className="bg-yellow-400 p-2 rounded-md mt-3">
         <img
           src="http://13.59.46.236/img/union.svg"

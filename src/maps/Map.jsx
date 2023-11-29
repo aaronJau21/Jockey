@@ -12,6 +12,7 @@ import "./map.css";
 import Geoman from "./components/scroll/Geoman";
 import { useEffect, useState } from "react";
 import piso2 from "./data/piso1.jpg";
+import ButtonFooter from "./components/ButtonFooter";
 
 const Map = () => {
   const center = [-12.086336855867012, -76.97589942856389];
@@ -23,7 +24,8 @@ const Map = () => {
   const [event, setEvent] = useState(false);
   const [info, setInfo] = useState([]);
   const [limpiar, setLimpiar] = useState(false);
-    
+  const [show, setShow] = useState(false);
+
   const extra = (id) => {
     setIdCapa(id);
   };
@@ -53,7 +55,13 @@ const Map = () => {
     >
       <ZoomControl position="bottomleft" />
 
-      <HeadersComponents extra={extra} setEvent={setEvent} info={info} setLimpiar={setLimpiar}/>
+      <HeadersComponents
+        extra={extra}
+        setEvent={setEvent}
+        info={info}
+        setLimpiar={setLimpiar}
+        setShow={setShow}
+      />
 
       {url === "http://200.121.128.102:8080/geoserver/jockey/wms" ? (
         <WMSTileLayer
@@ -71,7 +79,9 @@ const Map = () => {
           A pretty CSS3 popup. <br /> Easily customizable.
         </Popup>
       </Marker>
-      <Geoman event={event} setInfo={setInfo} limpiar={limpiar}/>
+      <Geoman event={event} setInfo={setInfo} limpiar={limpiar} />
+
+      {show ? <ButtonFooter /> : null}
     </MapContainer>
   );
 };
