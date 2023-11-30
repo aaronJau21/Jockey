@@ -11,7 +11,7 @@ const BotonesAyudas = ({ setExtraEvent }) => {
 
   return (
     <>
-      <div className="hidden 2xl:flex items-center gap-x-5">
+      <div className="hidden 2xl:flex items-center gap-x-5 relative">
         <button
           onClick={() => setEvent(!event)}
           className="flex gap-1 text-base bg-[#2BB296] py-1 px-2 rounded-md text-white hover:bg-[#E9DFDF] hover:text-green-600 shadow-black shadow-md"
@@ -87,7 +87,10 @@ const BotonesAyudas = ({ setExtraEvent }) => {
           </svg>
           Planos
         </button>
-        <button className="flex items-center text-base bg-[#2BB296] py-1 px-2 rounded-md text-white hover:bg-[#E9DFDF] hover:text-green-600 shadow-black shadow-md">
+        <button
+          onClick={() => setAcordion(!acordion)}
+          className="flex items-center text-base bg-[#2BB296] py-1 px-2 rounded-md text-white hover:bg-[#E9DFDF] hover:text-green-600 shadow-black shadow-md"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -104,6 +107,7 @@ const BotonesAyudas = ({ setExtraEvent }) => {
           </svg>
           Estatus Contratos
         </button>
+        {acordion && <StatusContratos />}
       </div>
     </>
   );

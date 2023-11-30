@@ -7,7 +7,12 @@ const Listado = ({ closeModalList }) => {
         <h3>Listado de Propuestas</h3>
         <h4>Listado de Propuestas realizadas</h4>
 
-        <button onClick={closeModalList} className="bg-gray-400 text-white py-1 px-3 rounded-md mt-5">Cerrar</button>
+        <button
+          onClick={closeModalList}
+          className="bg-gray-400 text-white py-1 px-3 rounded-md mt-5"
+        >
+          Cerrar
+        </button>
       </div>
     </div>
   );
