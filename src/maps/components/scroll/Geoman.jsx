@@ -9,14 +9,15 @@ const Geoman = ({ event, setInfo, limpiar }) => {
   const context = useLeafletContext();
   const [objects, setObjects] = useState([]);
   const [areas, setAreas] = useState([]);
- 
+
   useEffect(() => {
     if (event) {
       setInfo(areas);
     }
 
-    if (limpiar) {
-      setInfo([]);
+    console.log(areas);
+    if (limpiar && areas.length > 0) {
+      setAreas([]);
     }
   }, [event, areas, limpiar]);
 

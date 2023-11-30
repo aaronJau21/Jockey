@@ -52,7 +52,7 @@ const ToolBars = ({ setStateLimpiar, setOptions }) => {
             alt="Union"
             className="w-6"
           />
-          <span class="tooltiptext">Unión de poligonos</span>
+          <span className="tooltiptext">Unión de poligonos</span>
         </button>
       </div>
 
@@ -66,7 +66,7 @@ const ToolBars = ({ setStateLimpiar, setOptions }) => {
             alt="Union"
             className="w-6"
           />
-          <span class="tooltiptext">Listado de Propuestas</span>
+          <span className="tooltiptext">Listado de Propuestas</span>
         </button>
       </div>
       {showList && <Listado closeModalList={closeModalList} />}
