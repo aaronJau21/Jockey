@@ -18,7 +18,7 @@ const BotonesCapas = ({ extraerIdCapa }) => {
         {floors.map((floor) => (
           <button
             key={floor.id}
-            className="bg-red-600 px-2 py-1 flex text-white items-center gap-2 2xl:gap-0 rounded-md hover:bg-gray-300 shadow-black shadow-md"
+            className="bg-red-600 px-2 py-1 flex text-white items-center gap-2 2xl:gap-0 rounded-md hover:bg-gray-300 shadow-gray-500 shadow-md"
             onClick={() => handleClick(floor.id)}
           >
             <img
@@ -38,7 +38,7 @@ const BotonesCapas = ({ extraerIdCapa }) => {
         {floors.map((floor) => (
           <button
             key={floor.id}
-            className="bg-red-600 px-2 py-1 flex text-white items-center gap-2 rounded-md hover:bg-gray-300 shadow-md shadow-black"
+            className="bg-red-600 px-2 py-1 flex text-white items-center gap-2 rounded-md hover:bg-gray-300 shadow-gray-500 shadow-md"
             onClick={() => handleClick(floor.id)}
           >
             <img

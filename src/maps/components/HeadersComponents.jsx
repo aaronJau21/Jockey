@@ -59,7 +59,12 @@ export const HeadersComponents = ({
             placeholder="Buscas..."
           />
         </div>
-        <div>{valor}</div>
+        <div className="absolute top-16 left-[30vw]">
+          <div className="bg-black bg-opacity-70 p-4 rounded-md mt-4 text-white">
+            <h3 className="text-base">Estado del Contrato: {valor}</h3>
+            
+          </div>
+        </div>
         {info.length > 0 && (
           <div>
             {info.length > 0 && (

@@ -16,12 +16,12 @@ const BotonesAyudas = ({ setExtraEvent, setValor }) => {
       <div className="hidden 2xl:flex items-center gap-x-5 relative">
         <button
           onClick={() => setEvent(!event)}
-          className="flex gap-1 text-base bg-[#2BB296] py-1 px-2 rounded-md text-white hover:bg-[#E9DFDF] hover:text-green-600 shadow-black shadow-md"
+          className="flex gap-1 bg-[#2BB296] py-1 px-2 rounded-2xl text-white hover:bg-[#E9DFDF] hover:text-green-600 shadow-gray-500 shadow-md items-center"
         >
-          <i className="fa-solid fa-ruler-combined"></i>
-          <p>Medir Área</p>
+          <i className="fa-solid fa-ruler-combined text-base"></i>
+          <p className="text-sm">Medir Área</p>
         </button>
-        <button className="flex items-center text-base bg-[#2BB296] py-1 px-2 rounded-md text-white hover:bg-[#E9DFDF] hover:text-green-600 shadow-black shadow-md">
+        <button className="flex items-center  bg-[#2BB296] py-1 px-2 rounded-2xl text-white hover:bg-[#E9DFDF] hover:text-green-600 shadow-gray-500 shadow-md">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -36,10 +36,10 @@ const BotonesAyudas = ({ setExtraEvent, setValor }) => {
               d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z"
             />
           </svg>
-          Planos
+          <p className="text-sm">Planos</p>
         </button>
         <button
-          className="flex items-center text-base bg-[#2BB296] py-1 px-2 rounded-md text-white hover:bg-[#E9DFDF] hover:text-green-600 shadow-black shadow-md"
+          className="flex items-center text-base bg-[#2BB296] py-1 px-2 rounded-2xl text-white hover:bg-[#E9DFDF] hover:text-green-600 shadow-gray-500 shadow-md"
           onClick={() => setAcordion(!acordion)}
         >
           <svg
@@ -67,12 +67,12 @@ const BotonesAyudas = ({ setExtraEvent, setValor }) => {
       >
         <button
           onClick={() => setEvent(!event)}
-          className="flex gap-1 text-base bg-[#2BB296] py-1 px-2 rounded-md text-white hover:bg-[#E9DFDF] hover:text-green-600 shadow-black shadow-md"
+          className="flex gap-1 text-base bg-[#2BB296] py-1 px-2 rounded-2xl text-white hover:bg-[#E9DFDF] hover:text-green-600 shadow-gray-500 shadow-md"
         >
           <i className="fa-solid fa-ruler-combined"></i>
           <p>Medir Área</p>
         </button>
-        <button className="flex items-center text-base bg-[#2BB296] py-1 px-2 rounded-md text-white hover:bg-[#E9DFDF] hover:text-green-600 shadow-black shadow-md">
+        <button className="flex items-center text-base bg-[#2BB296] py-1 px-2 rounded-2xl text-white hover:bg-[#E9DFDF] hover:text-green-600 shadow-gray-500 shadow-md">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -91,7 +91,7 @@ const BotonesAyudas = ({ setExtraEvent, setValor }) => {
         </button>
         <button
           onClick={() => setAcordion(!acordion)}
-          className="flex items-center text-base bg-[#2BB296] py-1 px-2 rounded-md text-white hover:bg-[#E9DFDF] hover:text-green-600 shadow-black shadow-md"
+          className="flex items-center text-base bg-[#2BB296] py-1 px-2 rounded-2xl text-white hover:bg-[#E9DFDF] hover:text-green-600 shadow-gray-500 shadow-md"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

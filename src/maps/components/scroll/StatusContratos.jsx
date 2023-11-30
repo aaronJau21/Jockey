@@ -23,6 +23,8 @@ function StatusContratos({ setInfo, acordion }) {
 
   const handleChange = (event) => {
     setVentas(event.target.value);
+    // Cerrar el primer li al seleccionar un elemento del Select
+    setPisos([false, false, false]);
   };
 
   useEffect(() => {
@@ -37,9 +39,7 @@ function StatusContratos({ setInfo, acordion }) {
         {[1, 2, 3].map((piso, index) => (
           <li key={index}>
             <button
-              className={`border border-sky-400 bg-sky-400 text-white px-3 py-1 rounded-md mt-${
-                index === 0 ? "0" : "3"
-              }`}
+              className={`border border-sky-400 bg-sky-400 text-white px-3 py-1 rounded-md mt-2`}
               onClick={() => togglePiso(index)}
             >
               Piso {piso} Clientes con:

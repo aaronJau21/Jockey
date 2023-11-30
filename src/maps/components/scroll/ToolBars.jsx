@@ -26,7 +26,7 @@ const ToolBars = ({ setStateLimpiar, setOptions }) => {
       style={{ position: "fixed", right: 30, top: 300 }}
     >
       <button
-        className="bg-yellow-400 p-2 rounded-md hover:bg-gray-300 shadow-black shadow-md"
+        className="bg-yellow-400 p-2 rounded-md hover:bg-gray-300 shadow-gray-500 shadow-md"
         onClick={() => setLimpiar(!limpiar)}
       >
         <img
@@ -36,7 +36,7 @@ const ToolBars = ({ setStateLimpiar, setOptions }) => {
         />
       </button>
       <button
-        className="bg-sky-400 p-2 rounded-md mt-3 hover:bg-gray-300 shadow-black shadow-md"
+        className="bg-sky-400 p-2 rounded-md mt-3 hover:bg-gray-300 shadow-gray-500 shadow-md"
         onClick={() => setShowOptions(!showOptions)}
       >
         <img
@@ -46,7 +46,7 @@ const ToolBars = ({ setStateLimpiar, setOptions }) => {
         />
       </button>
       <div className="tooltip">
-        <button className="bg-yellow-400 p-2 rounded-md mt-3 shadow-black shadow-md">
+        <button className="bg-yellow-400 p-2 rounded-md mt-3 shadow-gray-500 shadow-md">
           <img
             src="http://13.59.46.236/img/union.svg"
             alt="Union"
@@ -58,7 +58,7 @@ const ToolBars = ({ setStateLimpiar, setOptions }) => {
 
       <div className="tooltip">
         <button
-          className="bg-yellow-400 p-2 rounded-md mt-3 shadow-black shadow-md"
+          className="bg-yellow-400 p-2 rounded-md mt-3 shadow-gray-500 shadow-md"
           onClick={openModalList}
         >
           <img
