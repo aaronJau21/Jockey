@@ -1,45 +1,34 @@
-import { useEffect, useState } from "react";
-import Modal from "react-modal";
+import { useState } from "react";
 import Formulario from "./modal/Formulario";
 
 const ButtonFooter = ({ setShowModal }) => {
-  const [modal, setModal] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const customStyles = {
-    content: {
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
-    },
-  };
-
+  console.log(isModalOpen);
   const abrirModal = () => {
-    setModal(true);
+    setIsModalOpen(true);
   };
+
   const closeModal = () => {
-    setModal(false);
+    setIsModalOpen(false);
   };
+
   return (
     <>
       <div className="footerStyle flex gap-x-4 text-white items-center">
         <button
-          className="bg-sky-500 px-3 py-1 rounded-md shadow-2xl"
+          className="bg-sky-500 px-3 py-1 rounded-md shadow-2xl hover:bg-[#E9DFDF] hover:text-green-600"
           onClick={abrirModal}
         >
           Grabar/Editar Propuestas
         </button>
-        <button className="bg-sky-500 px-3 py-1 rounded-md shadow-2xl">
+        <button className="bg-sky-500 px-3 py-1 rounded-md shadow-2xl hover:bg-[#E9DFDF] hover:text-green-600">
           Borrar Seleccion
         </button>
-        <button className="bg-sky-500 px-3 py-1 rounded-md shadow-2xl">
+        <button className="bg-sky-500 px-3 py-1 rounded-md shadow-2xl hover:bg-[#E9DFDF] hover:text-green-600">
           Cancelar
         </button>
-        <Modal isOpen={modal} onRequestClose={closeModal} style={customStyles}>
-          <Formulario closeModal={closeModal} />
-        </Modal>
+        {isModalOpen && <Formulario closeModal={closeModal}/>}
       </div>
     </>
   );
