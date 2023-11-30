@@ -7,7 +7,7 @@ const floors = [
 ];
 
 const BotonesCapas = ({ extraerIdCapa }) => {
-  const handdleClick = (id) => {
+  const handleClick = (id) => {
     extraerIdCapa(id);
   };
 
@@ -18,8 +18,8 @@ const BotonesCapas = ({ extraerIdCapa }) => {
         {floors.map((floor) => (
           <button
             key={floor.id}
-            className="bg-red-600 px-2 py-1 flex text-white items-center gap-2 2xl:gap-0 rounded-md hover:bg-gray-300"
-            onClick={() => handdleClick(floor.id)}
+            className="bg-red-600 px-2 py-1 flex text-white items-center gap-2 2xl:gap-0 rounded-md hover:bg-gray-300 shadow-black shadow-md"
+            onClick={() => handleClick(floor.id)}
           >
             <img
               src={floor.imageSrc}
@@ -38,8 +38,8 @@ const BotonesCapas = ({ extraerIdCapa }) => {
         {floors.map((floor) => (
           <button
             key={floor.id}
-            className="bg-red-600 px-2 py-1 flex text-white items-center gap-2 rounded-md hover:bg-gray-300"
-            onClick={() => handdleClick(floor.id)}
+            className="bg-red-600 px-2 py-1 flex text-white items-center gap-2 rounded-md hover:bg-gray-300 shadow-md shadow-black"
+            onClick={() => handleClick(floor.id)}
           >
             <img
               src={floor.imageSrc}
