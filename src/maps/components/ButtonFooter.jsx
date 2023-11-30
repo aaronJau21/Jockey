@@ -4,7 +4,7 @@ import Formulario from "./modal/Formulario";
 const ButtonFooter = ({ setShowModal }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  console.log(isModalOpen);
+
   const abrirModal = () => {
     setIsModalOpen(true);
   };

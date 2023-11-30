@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { Box, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import { useEffect, useState } from "react";
 
 const vencimientos = [
   "Vencimientos en 2 meses",
@@ -10,18 +11,29 @@ const vencimientos = [
   "Ninguno",
 ];
 
-function StatusContratos() {
+function StatusContratos({ setInfo, acordion }) {
   const [pisos, setPisos] = useState([false, false, false]);
+  const [activePiso, setActivePiso] = useState(null);
+  const [ventas, setVentas] = useState("");
 
   const togglePiso = (index) => {
-    const newPisos = [...pisos];
-    newPisos[index] = !newPisos[index];
-    setPisos(newPisos);
+    setPisos(pisos.map((_, i) => i === index));
+    setActivePiso(index);
   };
+
+  const handleChange = (event) => {
+    setVentas(event.target.value);
+  };
+
+  useEffect(() => {
+    if (acordion && ventas.length > 0) {
+      setInfo(ventas);
+    }
+  }, [acordion, ventas, setInfo]);
 
   return (
     <div className="absolute right-44 bottom-0 2xl:top-11 2xl:right-3 ">
-      <ul>
+      <ul className="bg-white">
         {[1, 2, 3].map((piso, index) => (
           <li key={index}>
             <button
@@ -33,16 +45,26 @@ function StatusContratos() {
               Piso {piso} Clientes con:
             </button>
             {pisos[index] && (
-              <ul className="ml-7 my-3">
-                {vencimientos.map((ven, vIndex) => (
-                  <li
-                    key={vIndex}
-                    className="border border-red-400 bg-red-400 my-1 rounded-md"
+              <Box sx={{ minWidth: 120 }}>
+                <FormControl fullWidth>
+                  <InputLabel id="demo-simple-select-label">
+                    Opciones
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={ventas}
+                    label="Opciones"
+                    onChange={handleChange}
                   >
-                    {ven}
-                  </li>
-                ))}
-              </ul>
+                    {vencimientos.map((venta, vIndex) => (
+                      <MenuItem value={venta} key={vIndex}>
+                        {venta}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </Box>
             )}
           </li>
         ))}

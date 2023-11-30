@@ -4,7 +4,8 @@ import StatusContratos from "./StatusContratos";
 const BotonesAyudas = ({ setExtraEvent }) => {
   const [event, setEvent] = useState(false);
   const [acordion, setAcordion] = useState(false);
-
+  const [info, setInfo] = useState("");
+  
   useEffect(() => {
     setExtraEvent(event);
   }, [event]);
@@ -56,7 +57,7 @@ const BotonesAyudas = ({ setExtraEvent }) => {
           </svg>
           Estatus Contratos
         </button>
-        {acordion && <StatusContratos />}
+        {acordion && <StatusContratos setInfo={setInfo} acordion={acordion} />}
       </div>
       {/* Scroll */}
       <div
@@ -107,7 +108,7 @@ const BotonesAyudas = ({ setExtraEvent }) => {
           </svg>
           Estatus Contratos
         </button>
-        {acordion && <StatusContratos />}
+        {acordion && <StatusContratos setInfo={setInfo} acordion={acordion} />}
       </div>
     </>
   );

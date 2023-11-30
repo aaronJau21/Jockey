@@ -15,7 +15,6 @@ const Geoman = ({ event, setInfo, limpiar }) => {
       setInfo(areas);
     }
 
-    console.log(areas);
     if (limpiar && areas.length > 0) {
       setAreas([]);
       clearObjects(); // Llamar a la función para limpiar los dibujos
@@ -65,7 +64,7 @@ const Geoman = ({ event, setInfo, limpiar }) => {
 
     shape.on("pm:edit", () => {
       const editedLayer = shape.toGeoJSON();
-      console.log(editedLayer);
+
     });
 
     shape.on("click", (event2) => {
@@ -91,12 +90,10 @@ const Geoman = ({ event, setInfo, limpiar }) => {
     const area = turf.area(editedLayer);
     const length = turf.length(editedLayer);
     setAreas((prevAreas) => [...prevAreas, { area, length }]);
-    console.log(`Área: ${area.toFixed(2)} metros cuadrados`);
-    console.log(`Longitud: ${length.toFixed(2)} metros`);
   };
 
   const handleGeomanRemove = () => {
-    console.log("object removed");
+
   };
 
   const clearObjects = () => {

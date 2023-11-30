@@ -37,7 +37,7 @@ const Map = () => {
   useEffect(() => {
     if (idCapa === 1) {
       setUrl("http://200.121.128.102:8080/geoserver/jockey/wms");
-      console.log();
+
     } else if (idCapa === 2) {
       setUrl(piso2);
     } else if (idCapa === 3) {
