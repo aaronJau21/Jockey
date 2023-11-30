@@ -23,11 +23,12 @@ function StatusContratos() {
     <div className="absolute right-44 bottom-0 2xl:top-11 2xl:right-3 ">
       <ul>
         {[1, 2, 3].map((piso, index) => (
-          <li key={index} onClick={() => togglePiso(index)}>
+          <li key={index}>
             <button
               className={`border border-sky-400 bg-sky-400 text-white px-3 py-1 rounded-md mt-${
                 index === 0 ? "0" : "3"
               }`}
+              onClick={() => togglePiso(index)}
             >
               Piso {piso} Clientes con:
             </button>
