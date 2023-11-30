@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
+import StatusContratos from "./StatusContratos";
 
 const BotonesAyudas = ({ setExtraEvent }) => {
   const [event, setEvent] = useState(false);
+  const [acordion, setAcordion] = useState(false);
+
   useEffect(() => {
     setExtraEvent(event);
   }, [event]);
@@ -33,7 +36,10 @@ const BotonesAyudas = ({ setExtraEvent }) => {
           </svg>
           Planos
         </button>
-        <button className="flex items-center text-base bg-[#2BB296] py-1 px-2 rounded-md text-white hover:bg-[#E9DFDF] hover:text-green-600 shadow-black shadow-md">
+        <button
+          className="flex items-center text-base bg-[#2BB296] py-1 px-2 rounded-md text-white hover:bg-[#E9DFDF] hover:text-green-600 shadow-black shadow-md"
+          onClick={() => setAcordion(!acordion)}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -50,6 +56,7 @@ const BotonesAyudas = ({ setExtraEvent }) => {
           </svg>
           Estatus Contratos
         </button>
+        {acordion && <StatusContratos />}
       </div>
       {/* Scroll */}
       <div
