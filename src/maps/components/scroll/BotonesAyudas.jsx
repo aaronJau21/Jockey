@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import StatusContratos from "./StatusContratos";
 
-const BotonesAyudas = ({ setExtraEvent }) => {
+const BotonesAyudas = ({ setExtraEvent, setValor }) => {
   const [event, setEvent] = useState(false);
   const [acordion, setAcordion] = useState(false);
   const [info, setInfo] = useState("");
-  
+
   useEffect(() => {
     setExtraEvent(event);
-  }, [event]);
+    setValor(info);
+  }, [event, info]);
 
   return (
     <>

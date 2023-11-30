@@ -14,7 +14,8 @@ export const HeadersComponents = ({
   const [extraEvent, setExtraEvent] = useState(false);
   const [stateLimpiar, setStateLimpiar] = useState(false);
   const [options, setOptions] = useState(false);
-
+  const [valor, setValor] = useState("");
+  console.log(valor);
   const extraerIdCapa = (id) => {
     setIdButtonCap(id);
     extra(id);
@@ -58,6 +59,7 @@ export const HeadersComponents = ({
             placeholder="Buscas..."
           />
         </div>
+        <div>{valor}</div>
         {info.length > 0 && (
           <div>
             {info.length > 0 && (
@@ -90,7 +92,7 @@ export const HeadersComponents = ({
         <BotonesCapas extraerIdCapa={extraerIdCapa} />
 
         {/* Botones de Ayudas */}
-        <BotonesAyudas setExtraEvent={setExtraEvent} />
+        <BotonesAyudas setExtraEvent={setExtraEvent} setValor={setValor} />
       </div>
       <div className="flex justify-end mx-10">
         <ToolBars setStateLimpiar={setStateLimpiar} setOptions={setOptions} />
