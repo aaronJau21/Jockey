@@ -11,12 +11,12 @@ const BotonesAyudas = ({ setExtraEvent }) => {
       <div className="hidden 2xl:flex items-center gap-x-5">
         <button
           onClick={() => setEvent(!event)}
-          className="flex gap-1 text-base bg-[#2BB296] py-1 px-2 rounded-md text-white"
+          className="flex gap-1 text-base bg-[#2BB296] py-1 px-2 rounded-md text-white hover:bg-[#E9DFDF] hover:text-green-600"
         >
           <i className="fa-solid fa-ruler-combined"></i>
           <p>Medir Área</p>
         </button>
-        <div className="flex items-center text-base bg-[#2BB296] py-1 px-2 rounded-md text-white">
+        <div className="flex items-center text-base bg-[#2BB296] py-1 px-2 rounded-md text-white hover:bg-[#E9DFDF] hover:text-green-600">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -33,7 +33,7 @@ const BotonesAyudas = ({ setExtraEvent }) => {
           </svg>
           Planos
         </div>
-        <div className="flex items-center text-base bg-[#2BB296] py-1 px-2 rounded-md text-white">
+        <div className="flex items-center text-base bg-[#2BB296] py-1 px-2 rounded-md text-white hover:bg-[#E9DFDF] hover:text-green-600">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -58,12 +58,12 @@ const BotonesAyudas = ({ setExtraEvent }) => {
       >
         <button
           onClick={() => setEvent(!event)}
-          className="flex gap-1 text-base bg-[#2BB296] py-1 px-2 rounded-md text-white"
+          className="flex gap-1 text-base bg-[#2BB296] py-1 px-2 rounded-md text-white hover:bg-[#E9DFDF] hover:text-green-600"
         >
           <i className="fa-solid fa-ruler-combined"></i>
           <p>Medir Área</p>
         </button>
-        <div className="flex items-center text-base bg-[#2BB296] py-1 px-2 rounded-md text-white">
+        <div className="flex items-center text-base bg-[#2BB296] py-1 px-2 rounded-md text-white hover:bg-[#E9DFDF] hover:text-green-600">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -80,7 +80,7 @@ const BotonesAyudas = ({ setExtraEvent }) => {
           </svg>
           Planos
         </div>
-        <div className="flex items-center text-base bg-[#2BB296] py-1 px-2 rounded-md text-white">
+        <div className="flex items-center text-base bg-[#2BB296] py-1 px-2 rounded-md text-white hover:bg-[#E9DFDF] hover:text-green-600">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
