@@ -18,6 +18,7 @@ const Geoman = ({ event, setInfo, limpiar }) => {
     console.log(areas);
     if (limpiar && areas.length > 0) {
       setAreas([]);
+      clearObjects(); // Llamar a la función para limpiar los dibujos
     }
   }, [event, areas, limpiar]);
 
@@ -30,7 +31,6 @@ const Geoman = ({ event, setInfo, limpiar }) => {
     return () => cleanupGeoman(leafletContainer);
   }, [context, event]);
 
-  // Función para configurar Geoman
   const setupGeoman = (leafletContainer) => {
     leafletContainer.pm.addControls({
       drawMarker: false,
@@ -42,7 +42,6 @@ const Geoman = ({ event, setInfo, limpiar }) => {
     leafletContainer.pm.setGlobalOptions({ pmIgnore: false });
   };
 
-  // Función para limpiar Geoman
   const cleanupGeoman = (leafletContainer) => {
     leafletContainer.pm.removeControls();
     leafletContainer.pm.setGlobalOptions({ pmIgnore: true });
@@ -52,17 +51,14 @@ const Geoman = ({ event, setInfo, limpiar }) => {
     });
   };
 
-  // Función para configurar manejadores de Turf
   const setupTurfHandlers = (leafletContainer) => {
     leafletContainer.on("pm:create", handleGeomanCreate);
     leafletContainer.on("pm:remove", handleGeomanRemove);
   };
 
-  // Función para manejar la creación de objetos en Geoman
   const handleGeomanCreate = (e) => {
     const shape = e.layer;
     setObjects((prevObjects) => [...prevObjects, shape]);
-    console.log(objects);
 
     shape.pm.enable();
     shape.bindPopup("i am whole").openPopup();
@@ -77,7 +73,6 @@ const Geoman = ({ event, setInfo, limpiar }) => {
     });
   };
 
-  // Función para manejar el clic en un objeto en Geoman
   const handleGeomanClick = (event, shape) => {
     if (event.originalEvent.ctrlKey || event.originalEvent.metaKey) {
       shape.options.highlighted = !shape.options.highlighted;
@@ -91,7 +86,6 @@ const Geoman = ({ event, setInfo, limpiar }) => {
     }
   };
 
-  // Función para calcular área y longitud con Turf
   const calculateAreaAndLength = (shape) => {
     const editedLayer = shape.toGeoJSON();
     const area = turf.area(editedLayer);
@@ -101,9 +95,15 @@ const Geoman = ({ event, setInfo, limpiar }) => {
     console.log(`Longitud: ${length.toFixed(2)} metros`);
   };
 
-  // Función para manejar la eliminación de objetos en Geoman
   const handleGeomanRemove = () => {
     console.log("object removed");
+  };
+
+  const clearObjects = () => {
+    objects.forEach((shape) => {
+      shape.remove();
+    });
+    setObjects([]);
   };
 
   return null;
