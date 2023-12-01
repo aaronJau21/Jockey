@@ -64,7 +64,6 @@ const Geoman = ({ event, setInfo, limpiar }) => {
 
     shape.on("pm:edit", () => {
       const editedLayer = shape.toGeoJSON();
-
     });
 
     shape.on("click", (event2) => {
@@ -73,7 +72,7 @@ const Geoman = ({ event, setInfo, limpiar }) => {
   };
 
   const handleGeomanClick = (event, shape) => {
-    if (event.originalEvent.ctrlKey || event.originalEvent.metaKey) {
+    if (true) {
       shape.options.highlighted = !shape.options.highlighted;
 
       if (shape.options.highlighted) {
@@ -92,9 +91,7 @@ const Geoman = ({ event, setInfo, limpiar }) => {
     setAreas((prevAreas) => [...prevAreas, { area, length }]);
   };
 
-  const handleGeomanRemove = () => {
-
-  };
+  const handleGeomanRemove = () => {};
 
   const clearObjects = () => {
     objects.forEach((shape) => {
