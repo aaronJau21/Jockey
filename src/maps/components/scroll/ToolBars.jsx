@@ -25,26 +25,32 @@ const ToolBars = ({ setStateLimpiar, setOptions }) => {
       className="mt-5 2xl:mt-0 flex flex-col "
       style={{ position: "fixed", right: 30, top: 300 }}
     >
-      <button
-        className="bg-yellow-400 p-2 rounded-md hover:bg-gray-300 shadow-gray-500 shadow-md"
-        onClick={() => setLimpiar(!limpiar)}
-      >
-        <img
-          src="http://13.59.46.236/img/limpiar.svg"
-          alt="Limpiar Pantalla"
-          className="w-6"
-        />
-      </button>
-      <button
-        className="bg-sky-400 p-2 rounded-md mt-3 hover:bg-gray-300 shadow-gray-500 shadow-md"
-        onClick={() => setShowOptions(!showOptions)}
-      >
-        <img
-          src="http://13.59.46.236/img/grupo.svg"
-          alt="grupo"
-          className="w-6"
-        />
-      </button>
+      <div>
+        <button
+          className="bg-yellow-400 p-2 rounded-md hover:bg-gray-300 shadow-gray-500 shadow-md"
+          onClick={() => setLimpiar(!limpiar)}
+        >
+          <img
+            src="http://13.59.46.236/img/limpiar.svg"
+            alt="Limpiar Pantalla"
+            className="w-6"
+          />
+        </button>
+      </div>
+      {limpiar && "Activo"}
+
+      <div>
+        <button
+          className="bg-sky-400 p-2 rounded-md mt-3 hover:bg-gray-300 shadow-gray-500 shadow-md"
+          onClick={() => setShowOptions(!showOptions)}
+        >
+          <img
+            src="http://13.59.46.236/img/grupo.svg"
+            alt="grupo"
+            className="w-6"
+          />
+        </button>
+      </div>
       <div className="tooltip">
         <button className="bg-yellow-400 p-2 rounded-md mt-3 shadow-gray-500 shadow-md">
           <img
