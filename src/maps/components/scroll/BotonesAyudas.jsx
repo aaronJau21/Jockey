@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import StatusContratos from "./StatusContratos";
+import BotonesPlanos from "./BotonesPlanos";
 
 const BotonesAyudas = ({ setExtraEvent, setValor }) => {
   const [event, setEvent] = useState(false);
   const [acordion, setAcordion] = useState(false);
   const [info, setInfo] = useState("");
+  const [showPlanos, setShowPlanos] = useState(false);
 
   useEffect(() => {
     setExtraEvent(event);
@@ -38,6 +40,7 @@ const BotonesAyudas = ({ setExtraEvent, setValor }) => {
           </svg>
           <p className="text-sm">Planos</p>
         </button>
+        {<BotonesPlanos />}
         <button
           className="flex items-center text-base bg-[#2BB296] py-1 px-2 rounded-2xl text-white hover:bg-[#E9DFDF] hover:text-green-600 shadow-gray-500 shadow-md"
           onClick={() => setAcordion(!acordion)}
