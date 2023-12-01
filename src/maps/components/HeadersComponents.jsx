@@ -38,7 +38,7 @@ export const HeadersComponents = ({
           className="w-52 shadow-2xl"
         />
         {/* Buscador */}
-        <div className=" w-72 flex bg-rose-200 items-center px-1 rounded-md mt-5 2xl:mt-0">
+        <div className=" w-72 flex bg-rose-200 items-center px-1 rounded-md mt-5 2xl:mt-0 shadow-gray-500 shadow-md">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -62,7 +62,6 @@ export const HeadersComponents = ({
         <div className="absolute top-16 left-[30vw]">
           <div className="bg-black bg-opacity-70 p-4 rounded-md mt-4 text-white">
             <h3 className="text-base">Estado del Contrato: {valor}</h3>
-            
           </div>
         </div>
         {info.length > 0 && (
