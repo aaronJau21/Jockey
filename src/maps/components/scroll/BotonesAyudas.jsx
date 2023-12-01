@@ -23,7 +23,10 @@ const BotonesAyudas = ({ setExtraEvent, setValor }) => {
           <i className="fa-solid fa-ruler-combined text-base"></i>
           <p className="text-sm">Medir Área</p>
         </button>
-        <button className="flex items-center  bg-[#2BB296] py-1 px-2 rounded-2xl text-white hover:bg-[#E9DFDF] hover:text-green-600 shadow-gray-500 shadow-md">
+        <button
+          className="flex items-center  bg-[#2BB296] py-1 px-2 rounded-2xl text-white hover:bg-[#E9DFDF] hover:text-green-600 shadow-gray-500 shadow-md"
+          onClick={() => setShowPlanos(!showPlanos)}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -40,7 +43,7 @@ const BotonesAyudas = ({ setExtraEvent, setValor }) => {
           </svg>
           <p className="text-sm">Planos</p>
         </button>
-        {<BotonesPlanos />}
+        {showPlanos && <BotonesPlanos />}
         <button
           className="flex items-center text-base bg-[#2BB296] py-1 px-2 rounded-2xl text-white hover:bg-[#E9DFDF] hover:text-green-600 shadow-gray-500 shadow-md"
           onClick={() => setAcordion(!acordion)}
