@@ -1,5 +1,5 @@
 import { FormControlLabel, Switch } from "@mui/material";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const BotonesPlanos = () => {
   const [piso1, setPiso1] = useState(false);
