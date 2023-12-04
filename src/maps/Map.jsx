@@ -13,18 +13,26 @@ import Geoman from "./components/scroll/Geoman";
 import { useEffect, useState } from "react";
 import piso2 from "./data/piso1.jpg";
 import ButtonFooter from "./components/ButtonFooter";
+import { connect } from "react-redux";
+import { setUrl, setIdCapa, setEvent, setInfo, setLimpiar, setShow } from "../redux/actions.js";
 
-const Map = () => {
+const Map = (props) => {
   const center = [-12.086336855867012, -76.97589942856389];
-  const [url, setUrl] = useState(
-    "http://200.121.128.102:8080/geoserver/jockey/wms"
-  );
 
-  const [idCapa, setIdCapa] = useState(1);
-  const [event, setEvent] = useState(false);
-  const [info, setInfo] = useState([]);
-  const [limpiar, setLimpiar] = useState(false);
-  const [show, setShow] = useState(false);
+  const {
+    idCapa,
+    setUrl,
+    url,
+    setIdCapa,
+    event,
+    setEvent,
+    info,
+    setInfo,
+    limpiar,
+    setLimpiar,
+    show,
+    setShow,
+  } = props;
 
   const extra = (id) => {
     setIdCapa(id);
@@ -37,14 +45,12 @@ const Map = () => {
   useEffect(() => {
     if (idCapa === 1) {
       setUrl("http://200.121.128.102:8080/geoserver/jockey/wms");
-
     } else if (idCapa === 2) {
       setUrl(piso2);
     } else if (idCapa === 3) {
       setUrl("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png");
     }
   }, [idCapa]);
-
   return (
     <MapContainer
       center={center}
@@ -86,4 +92,26 @@ const Map = () => {
   );
 };
 
-export default Map;
+const mapStateToProps = (state) => {
+  return {
+    idCapa: state.idCapa,
+    url: state.url,
+    event: state.event,
+    info: state.info,
+    limpiar: state.limpiar,
+    show: state.show,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setIdCapa: (id) => dispatch(setIdCapa(id)),
+    setUrl: (url) => dispatch(setUrl(url)),
+    setEvent: (event) => dispatch(setEvent(event)),
+    setInfo: (info) => dispatch(setInfo(info)),
+    setLimpiar: (limpiar) => dispatch(setLimpiar(limpiar)),
+    setShow: (show) => dispatch(setShow(show)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Map);
