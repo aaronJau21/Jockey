@@ -5,16 +5,10 @@ import BotonesAyudas from "./scroll/BotonesAyudas";
 import ToolBars from "./scroll/ToolBars";
 
 export const HeadersComponents = ({
-
-  // eslint-disable-next-line react/prop-types
   extra,
-  // eslint-disable-next-line react/prop-types
   setEvent,
-  // eslint-disable-next-line react/prop-types
   info,
-  // eslint-disable-next-line react/prop-types
   setLimpiar,
-  // eslint-disable-next-line react/prop-types
   setShow,
 }) => {
   // eslint-disable-next-line no-unused-vars
@@ -23,6 +17,7 @@ export const HeadersComponents = ({
   const [stateLimpiar, setStateLimpiar] = useState(false);
   const [options, setOptions] = useState(false);
   const [valor, setValor] = useState("");
+  const [formattedArea, setFormattedArea] = useState("");
 
   const extraerIdCapa = (id) => {
     setIdButtonCap(id);
@@ -30,23 +25,32 @@ export const HeadersComponents = ({
   };
 
   useEffect(() => {
-    if (info.length > 0) info;
+    if (info.length > 0) {
+      // Obtener la localidad del navegador (puedes ajustar esto según tus necesidades)
+      const userLocale = navigator.language || "es-PE";
+
+      // Formatear el área según la localidad
+      const formattedAreaValue = new Intl.NumberFormat(userLocale, {
+        maximumFractionDigits: 2,
+      }).format(info[info.length - 1].area);
+
+      setFormattedArea(formattedAreaValue);
+    }
+
     setEvent(extraEvent);
     setLimpiar(stateLimpiar);
     setShow(options);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [extraEvent, info, setEvent, stateLimpiar, options]);
 
   return (
     <div className="logoStyle w-[100vw]">
       <div className="2xl:flex items-center gap-24">
-        {/* imagen */}
         <img
           src="http://13.59.46.236/img/logo.png"
           alt=""
           className="w-52 shadow-2xl"
         />
-        {/* Buscador */}
         <div className=" w-72 flex bg-rose-200 items-center px-1 rounded-md mt-5 2xl:mt-0 shadow-gray-500 shadow-md">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -69,9 +73,7 @@ export const HeadersComponents = ({
           />
         </div>
         <div className="absolute top-14 left-[43vw]">
-          {/* <div className=""> */}
           <h3 className="text-base">Estado del Contrato: {valor}</h3>
-          {/* </div> */}
         </div>
         {info.length > 0 && (
           <div>
@@ -81,7 +83,7 @@ export const HeadersComponents = ({
                   <div>
                     {extraEvent && info[info.length - 1].area && (
                       <p>
-                        Área: {info[info.length - 1].area.toFixed(2)} m²
+                        Área: {formattedArea} m²
                       </p>
                     )}
                     {extraEvent && info[info.length - 1].length && (
@@ -90,20 +92,13 @@ export const HeadersComponents = ({
                         metros
                       </p>
                     )}
-                    {/* Agrega más lógica según la estructura real de info[0] */}
                   </div>
                 )}
-                {/* Agrega más lógica según la estructura real de info[0] */}
               </div>
             )}
-            {/* Agrega más lógica según la estructura real de info[0] */}
           </div>
         )}
-        {/* Botones de las capas */}
-
         <BotonesCapas extraerIdCapa={extraerIdCapa} />
-
-        {/* Botones de Ayudas */}
         <BotonesAyudas setExtraEvent={setExtraEvent} setValor={setValor} />
       </div>
       <div className="flex justify-end mx-10">
