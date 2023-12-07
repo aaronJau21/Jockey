@@ -80,6 +80,15 @@ const ToolBars = ({ setStateLimpiar, setOptions }) => {
         </button>
       </div>
       {showList && <Listado closeModalList={closeModalList} />}
+
+      <div className="tooltip">
+        <button
+          className="bg-yellow-400 p-2 rounded-md mt-3 shadow-gray-500 shadow-md"
+        >
+          <i className="fa-solid fa-circle-info text-2xl"></i>
+          <span className="tooltiptext">Muestra Información</span>
+        </button>
+      </div>
     </div>
   );
 };
