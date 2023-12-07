@@ -81,8 +81,7 @@ export const HeadersComponents = ({
                   <div>
                     {extraEvent && info[info.length - 1].area && (
                       <p>
-                        Área: {info[info.length - 1].area.toFixed(2)} metros
-                        cuadrados
+                        Área: {info[info.length - 1].area.toFixed(2)} m²
                       </p>
                     )}
                     {extraEvent && info[info.length - 1].length && (

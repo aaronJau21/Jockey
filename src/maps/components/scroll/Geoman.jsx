@@ -5,6 +5,7 @@ import "@geoman-io/leaflet-geoman-free/dist/leaflet-geoman.css";
 import * as turf from "@turf/turf";
 import { highlightGeomanShape, resetGeomanShapeStyle } from "../colors/geoman";
 
+// eslint-disable-next-line react/prop-types
 const Geoman = ({ event, setInfo, limpiar }) => {
   const context = useLeafletContext();
   const [objects, setObjects] = useState([]);
@@ -19,6 +20,7 @@ const Geoman = ({ event, setInfo, limpiar }) => {
       setAreas([]);
       clearObjects(); // Llamar a la función para limpiar los dibujos
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [event, areas, limpiar]);
 
   useEffect(() => {
@@ -60,9 +62,9 @@ const Geoman = ({ event, setInfo, limpiar }) => {
     setObjects((prevObjects) => [...prevObjects, shape]);
 
     shape.pm.enable();
-    shape.bindPopup("i am whole").openPopup();
 
     shape.on("pm:edit", () => {
+      // eslint-disable-next-line no-unused-vars
       const editedLayer = shape.toGeoJSON();
     });
 
@@ -72,6 +74,7 @@ const Geoman = ({ event, setInfo, limpiar }) => {
   };
 
   const handleGeomanClick = (event, shape) => {
+    // eslint-disable-next-line no-constant-condition
     if (true) {
       shape.options.highlighted = !shape.options.highlighted;
 
@@ -91,7 +94,7 @@ const Geoman = ({ event, setInfo, limpiar }) => {
     setAreas((prevAreas) => [...prevAreas, { area, length }]);
   };
 
-  const handleGeomanRemove = () => {};
+  const handleGeomanRemove = () => { };
 
   const clearObjects = () => {
     objects.forEach((shape) => {
