@@ -36,3 +36,4 @@ div.leaflet-pm-toolbar.leaflet-pm-draw.leaflet-bar.leaflet-control {
 .tooltip:hover .tooltiptext {
   @apply visible opacity-100;
 }
+

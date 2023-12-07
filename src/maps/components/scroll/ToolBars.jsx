@@ -7,6 +7,7 @@ const ToolBars = ({ setStateLimpiar, setOptions }) => {
 
   const [showOptions, setShowOptions] = useState(false);
   const [showList, setShowList] = useState(false);
+  const [infoLocal, setInfoLocal] = useState(false)
 
   const openModalList = () => {
     setShowList(true);
@@ -84,8 +85,10 @@ const ToolBars = ({ setStateLimpiar, setOptions }) => {
       <div className="tooltip">
         <button
           className="bg-yellow-400 p-2 rounded-md mt-3 shadow-gray-500 shadow-md"
+          onClick={() => setInfoLocal(!infoLocal)}
         >
-          <i className="fa-solid fa-circle-info text-2xl"></i>
+          {infoLocal ? 'Haga Click en un local' : <i className="fa-solid fa-circle-info text-2xl"></i>}
+
           <span className="tooltiptext">Muestra Información</span>
         </button>
       </div>
