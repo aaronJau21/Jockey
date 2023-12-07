@@ -42,7 +42,7 @@ const ToolBars = ({ setStateLimpiar, setOptions }) => {
       </div>
       {limpiar && "Activo"}
 
-      <div>
+      <div className="tooltip">
         <button
           className="bg-sky-400 p-2 rounded-md mt-3 hover:bg-gray-300 shadow-gray-500 shadow-md"
           onClick={() => setShowOptions(!showOptions)}
@@ -53,6 +53,7 @@ const ToolBars = ({ setStateLimpiar, setOptions }) => {
             className="w-6"
           />
         </button>
+        <span className="tooltiptext">Guardar Polígonos</span>
       </div>
       <div className="tooltip">
         <button className="bg-yellow-400 p-2 rounded-md mt-3 shadow-gray-500 shadow-md">

@@ -30,6 +30,7 @@ const Geoman = ({ event, setInfo, limpiar }) => {
     setupTurfHandlers(leafletContainer);
 
     return () => cleanupGeoman(leafletContainer);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [context, event]);
 
   const setupGeoman = (leafletContainer) => {
