@@ -1,5 +1,4 @@
-import { Box, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
 const vencimientos = [
   "Vencimientos en 2 meses",
@@ -11,8 +10,10 @@ const vencimientos = [
   "Ninguno",
 ];
 
+// eslint-disable-next-line react/prop-types
 function StatusContratos({ setInfo, acordion }) {
   const [pisos, setPisos] = useState([false, false, false]);
+  // eslint-disable-next-line no-unused-vars
   const [activePiso, setActivePiso] = useState(null);
   const [ventas, setVentas] = useState("");
 
@@ -23,7 +24,6 @@ function StatusContratos({ setInfo, acordion }) {
 
   const handleChange = (event) => {
     setVentas(event.target.value);
-    // Cerrar el primer li al seleccionar un elemento del Select
     setPisos([false, false, false]);
   };
 
@@ -34,37 +34,34 @@ function StatusContratos({ setInfo, acordion }) {
   }, [acordion, ventas, setInfo]);
 
   return (
-    <div className="absolute right-44 bottom-0 2xl:top-11 2xl:right-3 ">
+    <div className="absolute right-44 bottom-0 2xl:top-11 2xl:right-3">
       <ul className="bg-white">
         {[1, 2, 3].map((piso, index) => (
           <li key={index}>
             <button
-              className={`border border-sky-400 bg-sky-400 text-white px-3 py-1 rounded-md mt-2`}
+              className={`border border-blue-400 bg-blue-400 text-white px-3 py-1 rounded-md mt-2`}
               onClick={() => togglePiso(index)}
             >
               Piso {piso} Clientes con:
             </button>
             {pisos[index] && (
-              <Box sx={{ minWidth: 120 }}>
-                <FormControl fullWidth>
-                  <InputLabel id="demo-simple-select-label">
-                    Opciones
-                  </InputLabel>
-                  <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
+              <div className="min-w-120 mt-2">
+                <div className="w-full">
+                  <select
+                    id={`ventas-select-${index}`}
                     value={ventas}
-                    label="Opciones"
                     onChange={handleChange}
+                    className="border border-gray-300 rounded-md p-1"
                   >
+                    <option value="">Opciones</option>
                     {vencimientos.map((venta, vIndex) => (
-                      <MenuItem value={venta} key={vIndex}>
+                      <option value={venta} key={vIndex}>
                         {venta}
-                      </MenuItem>
+                      </option>
                     ))}
-                  </Select>
-                </FormControl>
-              </Box>
+                  </select>
+                </div>
+              </div>
             )}
           </li>
         ))}

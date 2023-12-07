@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import StatusContratos from "./StatusContratos";
 import BotonesPlanos from "./BotonesPlanos";
 
+// eslint-disable-next-line react/prop-types
 const BotonesAyudas = ({ setExtraEvent, setValor }) => {
   const [event, setEvent] = useState(false);
   const [acordion, setAcordion] = useState(false);
@@ -11,6 +12,7 @@ const BotonesAyudas = ({ setExtraEvent, setValor }) => {
   useEffect(() => {
     setExtraEvent(event);
     setValor(info);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [event, info]);
 
   return (

@@ -1,21 +1,29 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import BotonesCapas from "./scroll/BotonesCapas";
 import BotonesAyudas from "./scroll/BotonesAyudas";
 import ToolBars from "./scroll/ToolBars";
 
 export const HeadersComponents = ({
+
+  // eslint-disable-next-line react/prop-types
   extra,
+  // eslint-disable-next-line react/prop-types
   setEvent,
+  // eslint-disable-next-line react/prop-types
   info,
+  // eslint-disable-next-line react/prop-types
   setLimpiar,
+  // eslint-disable-next-line react/prop-types
   setShow,
 }) => {
+  // eslint-disable-next-line no-unused-vars
   const [idButtonCap, setIdButtonCap] = useState(1);
   const [extraEvent, setExtraEvent] = useState(false);
   const [stateLimpiar, setStateLimpiar] = useState(false);
   const [options, setOptions] = useState(false);
   const [valor, setValor] = useState("");
-  console.log(valor);
+
   const extraerIdCapa = (id) => {
     setIdButtonCap(id);
     extra(id);
@@ -26,6 +34,7 @@ export const HeadersComponents = ({
     setEvent(extraEvent);
     setLimpiar(stateLimpiar);
     setShow(options);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [extraEvent, info, setEvent, stateLimpiar, options]);
 
   return (
@@ -59,10 +68,10 @@ export const HeadersComponents = ({
             placeholder="Buscas..."
           />
         </div>
-        <div className="absolute top-16 left-[30vw]">
-          <div className="bg-black bg-opacity-70 p-4 rounded-md mt-4 text-white">
-            <h3 className="text-base">Estado del Contrato: {valor}</h3>
-          </div>
+        <div className="absolute top-14 left-[43vw]">
+          {/* <div className=""> */}
+          <h3 className="text-base">Estado del Contrato: {valor}</h3>
+          {/* </div> */}
         </div>
         {info.length > 0 && (
           <div>

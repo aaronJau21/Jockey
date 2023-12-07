@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Listado from "../modal/Listado";
 
+// eslint-disable-next-line react/prop-types
 const ToolBars = ({ setStateLimpiar, setOptions }) => {
   const [limpiar, setLimpiar] = useState(false);
 
@@ -18,6 +19,7 @@ const ToolBars = ({ setStateLimpiar, setOptions }) => {
   useEffect(() => {
     setStateLimpiar(limpiar);
     setOptions(showOptions);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [limpiar, showOptions]);
 
   return (
@@ -25,7 +27,7 @@ const ToolBars = ({ setStateLimpiar, setOptions }) => {
       className="mt-5 2xl:mt-0 flex flex-col "
       style={{ position: "fixed", right: 30, top: 300 }}
     >
-      <div>
+      <div className="tooltip">
         <button
           className="bg-yellow-400 p-2 rounded-md hover:bg-gray-300 shadow-gray-500 shadow-md"
           onClick={() => setLimpiar(!limpiar)}
@@ -35,6 +37,7 @@ const ToolBars = ({ setStateLimpiar, setOptions }) => {
             alt="Limpiar Pantalla"
             className="w-6"
           />
+          <span className="tooltiptext">Eliminar Polìgonos</span>
         </button>
       </div>
       {limpiar && "Activo"}
