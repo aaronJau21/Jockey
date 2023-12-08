@@ -33,7 +33,18 @@ div.leaflet-pm-toolbar.leaflet-pm-draw.leaflet-bar.leaflet-control {
   @apply invisible w-24 bg-gray-800 text-white text-center rounded p-1 absolute z-10 bottom-0 right-11 -ml-12 opacity-0 transition-opacity duration-300;
 }
 
+.tooltip .tooltiptextsecond {
+  @apply invisible w-24 bg-gray-800 text-white text-center rounded p-1 absolute z-10 bottom-0 right-11 -ml-12 opacity-0 transition-opacity duration-300;
+}
+
 .tooltip:hover .tooltiptext {
   @apply visible opacity-100;
 }
 
+.tooltip:hover .tooltiptextsecond {
+  @apply visible opacity-100;
+}
+
+.tooltip .tooltiptextsecond {
+  @apply invisible w-24 bg-gray-800 text-white text-center rounded p-1 absolute z-10 bottom-0 right-36 -ml-12 opacity-0 transition-opacity duration-300;
+}
